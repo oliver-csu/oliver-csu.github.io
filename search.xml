@@ -198,17 +198,16 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机系统的组成</title>
-    <url>/2024/09/19/20240919-05.html</url>
-    <content><![CDATA[<h1 id="计算机硬件的基本组成"><a href="#计算机硬件的基本组成" class="headerlink" title="计算机硬件的基本组成"></a>计算机硬件的基本组成</h1><p>计算机的最基本组成就是使用总线将各个组件连起来：</p>
-<ul>
-<li>输入设备</li>
-<li>输出设备</li>
-<li>存储器</li>
-<li>运算器</li>
-<li>控制器</li>
-</ul>
-<p><img src="/./assets/20240919/b1b586c0c73b4580acd4d0510d448b09.png" alt="计算机硬件基本组成"></p>
+    <title>计算机软件的发展</title>
+    <url>/2024/09/19/20240919-03.html</url>
+    <content><![CDATA[<h1 id="计算机软件的发展"><a href="#计算机软件的发展" class="headerlink" title="计算机软件的发展"></a>计算机软件的发展</h1><ol>
+<li>汇编语言阶段（20世纪50年代）</li>
+<li>程序批处理阶段（20世纪60年代）</li>
+<li>分时多用户阶段（20世纪70年代）</li>
+<li>分布式管理阶段（20世纪80年代）</li>
+<li>软件重用阶段（20世纪90年代）</li>
+<li>Web服务阶段（21世纪初至今）</li>
+</ol>
 ]]></content>
       <tags>
         <tag>计算机组成原理</tag>
@@ -260,6 +259,23 @@
 <li>并行处理</li>
 <li>智能化</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>计算机组成原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机系统的组成</title>
+    <url>/2024/09/19/20240919-05.html</url>
+    <content><![CDATA[<h1 id="计算机硬件的基本组成"><a href="#计算机硬件的基本组成" class="headerlink" title="计算机硬件的基本组成"></a>计算机硬件的基本组成</h1><p>计算机的最基本组成就是使用总线将各个组件连起来：</p>
+<ul>
+<li>输入设备</li>
+<li>输出设备</li>
+<li>存储器</li>
+<li>运算器</li>
+<li>控制器</li>
+</ul>
+<p><img src="/./assets/20240919/b1b586c0c73b4580acd4d0510d448b09.png" alt="计算机硬件基本组成"></p>
 ]]></content>
       <tags>
         <tag>计算机组成原理</tag>
@@ -496,22 +512,6 @@
 ]]></content>
       <tags>
         <tag>算法与数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机软件的发展</title>
-    <url>/2024/09/19/20240919-03.html</url>
-    <content><![CDATA[<h1 id="计算机软件的发展"><a href="#计算机软件的发展" class="headerlink" title="计算机软件的发展"></a>计算机软件的发展</h1><ol>
-<li>汇编语言阶段（20世纪50年代）</li>
-<li>程序批处理阶段（20世纪60年代）</li>
-<li>分时多用户阶段（20世纪70年代）</li>
-<li>分布式管理阶段（20世纪80年代）</li>
-<li>软件重用阶段（20世纪90年代）</li>
-<li>Web服务阶段（21世纪初至今）</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>计算机组成原理</tag>
       </tags>
   </entry>
 </search>
