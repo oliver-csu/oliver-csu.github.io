@@ -19,16 +19,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.oliver.ren","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="计算机硬件的基本组成计算机的最基本组成就是使用总线将各个组件连起来：  输入设备 输出设备 存储器 运算器 控制器">
+    <meta name="description" content="计算机硬件的基本组成计算机的最基本组成就是使用总线将各个组件连起来：  输入设备 输出设备 存储器 运算器 控制器   存储器 运算器 控制器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机系统的组成">
 <meta property="og:url" content="https://www.oliver.ren/2024/09/19/20240919-05.html">
 <meta property="og:site_name" content="Oliver&#39;s Blog">
-<meta property="og:description" content="计算机硬件的基本组成计算机的最基本组成就是使用总线将各个组件连起来：  输入设备 输出设备 存储器 运算器 控制器">
+<meta property="og:description" content="计算机硬件的基本组成计算机的最基本组成就是使用总线将各个组件连起来：  输入设备 输出设备 存储器 运算器 控制器   存储器 运算器 控制器">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.oliver.ren/assets/20240919/b1b586c0c73b4580acd4d0510d448b09.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241008/85e9b44dbd7f459f982569c503c5d6f7.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241008/f5dbefcbb320401cad79c3ce1f6ed920.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241008/27fcbd169acb46e8a8dc4252bc166f0b.png">
 <meta property="article:published_time" content="2024-09-19T11:38:02.000Z">
-<meta property="article:modified_time" content="2024-09-19T11:40:58.677Z">
+<meta property="article:modified_time" content="2024-10-08T12:09:31.425Z">
 <meta property="article:author" content="Oliver King">
 <meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
@@ -142,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">计算机硬件的基本组成</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">计算机硬件的基本组成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">存储器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">运算器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">控制器</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -155,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -215,9 +218,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-09-19 19:38:02 / 修改时间：19:40:58" itemprop="dateCreated datePublished" datetime="2024-09-19T19:38:02+08:00">2024-09-19</time>
+      <time title="创建时间：2024-09-19 19:38:02" itemprop="dateCreated datePublished" datetime="2024-09-19T19:38:02+08:00">2024-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-10-08 20:09:31" itemprop="dateModified" datetime="2024-10-08T20:09:31+08:00">2024-10-08</time>
     </span>
 
   
@@ -238,6 +247,9 @@
 <li>控制器</li>
 </ul>
 <p><img src="/./assets/20240919/b1b586c0c73b4580acd4d0510d448b09.png" alt="计算机硬件基本组成"></p>
+<h2 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h2><p><img src="/./assets/20241008/85e9b44dbd7f459f982569c503c5d6f7.png" alt="存储器"></p>
+<h2 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h2><p><img src="/./assets/20241008/f5dbefcbb320401cad79c3ce1f6ed920.png" alt="运算器"></p>
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><p><img src="/./assets/20241008/27fcbd169acb46e8a8dc4252bc166f0b.png" alt="控制器"></p>
 
     </div>
 
