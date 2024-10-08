@@ -537,4 +537,22 @@
         <tag>计算机组成原理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>现代计算机组织结构</title>
+    <url>/2024/10/08/20241008-02.html</url>
+    <content><![CDATA[<h1 id="现代计算机组织结构"><a href="#现代计算机组织结构" class="headerlink" title="现代计算机组织结构"></a>现代计算机组织结构</h1><ul>
+<li>入&#x2F;出&#x2F;存&#x2F;算&#x2F;控</li>
+<li>采用二进制表示数据和指令</li>
+<li>采用存储程序方式</li>
+<li>CPU：运算器与控制器合并到微处理器</li>
+<li>以存储器为核心，IO设备尽可能绕过CPU</li>
+</ul>
+<p><img src="/./assets/20241008/b4efaa25cd38480f82645db049713342.png" alt="现代计算机结构"></p>
+<h1 id="以存储器为中心的计算机结构"><a href="#以存储器为中心的计算机结构" class="headerlink" title="以存储器为中心的计算机结构"></a>以存储器为中心的计算机结构</h1><p><img src="/./assets/20241008/41d944c0d6d14a8ca5ed1a3ea84a0e28.png" alt="以存储器为中心的计算机结构"></p>
+<h1 id="现代计算机组织结构-1"><a href="#现代计算机组织结构-1" class="headerlink" title="现代计算机组织结构"></a>现代计算机组织结构</h1><p><img src="/./assets/20241008/3ef82923745247f199de104d1ac0c1e4.png" alt="现代计算机组织结构"></p>
+]]></content>
+      <tags>
+        <tag>计算机组成原理</tag>
+      </tags>
+  </entry>
 </search>
