@@ -555,4 +555,38 @@
         <tag>计算机组成原理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>计算机的工作过程</title>
+    <url>/2024/10/08/20241008-03.html</url>
+    <content><![CDATA[<h1 id="从源文件到可执行文件"><a href="#从源文件到可执行文件" class="headerlink" title="从源文件到可执行文件"></a>从源文件到可执行文件</h1><ol>
+<li>预处理阶段</li>
+</ol>
+<ul>
+<li>高级语言：C&#x2F;C++、Java、GO</li>
+<li>删注释；引入包含文件</li>
+</ul>
+<ol start="2">
+<li>编译阶段</li>
+</ol>
+<ul>
+<li>汇编语言：指令代码</li>
+</ul>
+<ol start="3">
+<li>汇编阶段</li>
+</ol>
+<ul>
+<li>机器语言：二进制编码</li>
+</ul>
+<ol start="4">
+<li>链接阶段</li>
+</ol>
+<ul>
+<li>+库函数</li>
+</ul>
+<p><img src="/./assets/20241008/e4e1d30288de4318a116521fd9a8cc3d.png" alt="计算机的工作过程"></p>
+]]></content>
+      <tags>
+        <tag>计算机组成原理</tag>
+      </tags>
+  </entry>
 </search>
