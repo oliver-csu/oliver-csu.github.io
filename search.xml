@@ -697,4 +697,35 @@
         <tag>PostgreSQL</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PostgreSQL的安装</title>
+    <url>/2024/10/10/20241010-04.html</url>
+    <content><![CDATA[<p>主要在Linux中安装，不推荐在Windows下安装。</p>
+<p>Linux的版本尽量使用CentOS 7.x版本，最好是7.6或者是7.8版本。</p>
+<p>去官网找安装的方式：</p>
+<p><img src="/./assets/20241010/ce79cee2b6394311893c70e20da3a96a.png" alt="官网安装方式"></p>
+<p>选择好PostgreSQL的版本，以及Linux的发行版本</p>
+<p><img src="/./assets/20241010/a1bcec660b7e4beb937627a5c044f64b.png" alt="Linux安装12版本"></p>
+<p>拿到命令直接在Linux中运行即可</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载PGSQL的rpm包</span></span><br><span class="line"><span class="built_in">sudo</span> yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</span><br><span class="line"><span class="comment"># 安装PGSQL12的软件程序，需要下载，需要等一会，一般不会失败，即便失败，他也会重新帮你找镜像</span></span><br><span class="line"><span class="built_in">sudo</span> yum install -y postgresql12-server</span><br><span class="line"><span class="comment"># 数据库初始化</span></span><br><span class="line"><span class="built_in">sudo</span> /usr/pgsql-12/bin/postgresql-12-setup initdb</span><br><span class="line"><span class="comment"># 设置开启启动项，并设置为开启自行启动</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> postgresql-12</span><br><span class="line"><span class="comment"># 启动PGSQL</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start postgresql-12</span><br></pre></td></tr></table></figure>
+<p>这种属于Windows下的傻瓜式安装，基本不会出错。</p>
+<p>如果出错，可能是如下的问题：</p>
+<ul>
+<li>安装Linux的时候，一定要选择最小安装；</li>
+<li>Linux不能连接外网；</li>
+<li>Linux中的5432端口可能被占用。</li>
+</ul>
+<p>PostgreSQL不推荐使用root管理，在安装成功postgreSQL后，他默认会给你创建一个用户：postgres</p>
+<p>使用PostgreSQL前需要先切换到postgres</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su postgres</span><br></pre></td></tr></table></figure>
+
+<p>切换到postgres用户后，直接输入psql即可进入到postgreSQL提供的客户端</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 进入命令行</span><br><span class="line">psql</span><br><span class="line"># 查看有哪些库，如果是新安装的，有三个库：postgres，template0，template1</span><br></pre></td></tr></table></figure>
+
+<p>Windows版本的下载地址：<a href="https://sbp.enterprisedb.com/getfile.jsp?fileid=1258242">https://sbp.enterprisedb.com/getfile.jsp?fileid=1258242</a></p>
+]]></content>
+      <tags>
+        <tag>PostgreSQL</tag>
+      </tags>
+  </entry>
 </search>
