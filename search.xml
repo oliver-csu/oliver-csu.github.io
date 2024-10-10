@@ -769,4 +769,50 @@
         <tag>PostgreSQL</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PostgreSQL的基础操作</title>
+    <url>/2024/10/10/20241010-06.html</url>
+    <content><![CDATA[<p>在psql命令行（客户端）下，执行了一次\l，查看所有的库信息</p>
+<p>可以直接基于psql查看一些信息，也可以基于psql进入到命令行后，再做具体操作</p>
+<p><img src="/./assets/20241010/dcd871238f4549649018fc8b07c6dc93.png" alt="\l"></p>
+<p>可以直接基于psql操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">可以使用psql --help，查看psql的命令</span><br><span class="line">可以直接进入到命令行的原因是psql默认情况下，就是以postgres用户去连接本地的pgsql，所以可以直接进入</span><br><span class="line">下面的图是默认的连接方式</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/490b99cc853d406e87a8f9b05a1c88e9.png" alt="默认连接方式"></p>
+<p>后面都基于psql的命令行（客户端）去进行操作</p>
+<p>命令不用背，需要使用的时候，直接找帮助文档，在psql命令行中，直接输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\help，即可查看到数据库级别的一些命令</span><br><span class="line">\?，可以查看到服务级别的一些命令</span><br></pre></td></tr></table></figure>
+
+<h1 id="用户相关"><a href="#用户相关" class="headerlink" title="用户相关"></a>用户相关</h1><p>构建用户命令：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="keyword">create</span> <span class="keyword">user</span>默认有连接权限，而<span class="keyword">create</span> role没有，但可以基于选项设置</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> 名称 [ [ <span class="keyword">WITH</span> ] 选项 [ ... ] ]</span><br><span class="line"><span class="keyword">CREATE</span> ROLE 名称 [ [ <span class="keyword">WITH</span> ] 选项 [ ... ] ]</span><br></pre></td></tr></table></figure>
+
+<p>创建一个超级管理员用户：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> root <span class="keyword">WITH</span> SUPERUSER PASSWORD <span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/b10afe02df1c45b6bdab8f03eced03f5.png" alt="创建超级管理员"></p>
+<p>退出psql命令行</p>
+<p><img src="/./assets/20241010/e31c67986b4d4570ad70200065d9e704.png" alt="退出命令行"></p>
+<p>尝试去用root用户登录的psql命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">psql -h 192.168.11.32 -p 5432 -U root -W</span><br></pre></td></tr></table></figure>
+
+<p>根据提示发现，光有用户不让登录，用户需要有一个数据库，创建一个root库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create database root;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/d338efe105a44718969fbb369450e38d.png" alt="创建数据库"></p>
+<p>可以在不退出psql的前提下，直接切换数据库</p>
+<p><img src="/./assets/20241010/248de5f3be7446f5be9adf5225560268.png" alt="切换数据库"></p>
+<p>也可以退出psql，重新基于psql命令去切换用户以及数据库</p>
+<p>如果要修改用户信息，或者删除用户，可以查看</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改用户，直接基于ALTER命令操作</span></span><br><span class="line"><span class="comment"># 删除用户，直接基于DROP命令操作</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要查看现在的全部用户信息</p>
+<p><img src="/./assets/20241010/d85d11baa4474370b5a4c97a18c07581.png" alt="查看全部用户信息"></p>
+<h1 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h1><p>权限操作前，要先掌握一下PGSQL的逻辑结构</p>
+<p><img src="/./assets/20241010/0ca8c4fb119f44d5befe8020a2cd416a.png" alt="逻辑结构图"></p>
+<p>PostgreSQL一个数据库中有多个schema，在每个schema下都有自己的相应的表信息，权限粒度比MySQL更细一些。</p>
+]]></content>
+      <tags>
+        <tag>PostgreSQL</tag>
+      </tags>
+  </entry>
 </search>

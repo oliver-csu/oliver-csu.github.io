@@ -19,28 +19,37 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.oliver.ren","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="计算机软件的发展 汇编语言阶段（20世纪50年代） 程序批处理阶段（20世纪60年代） 分时多用户阶段（20世纪70年代） 分布式管理阶段（20世纪80年代） 软件重用阶段（20世纪90年代） Web服务阶段（21世纪初至今）">
+    <meta name="description" content="在psql命令行（客户端）下，执行了一次\l，查看所有的库信息 可以直接基于psql查看一些信息，也可以基于psql进入到命令行后，再做具体操作  可以直接基于psql操作。 123可以使用psql --help，查看psql的命令可以直接进入到命令行的原因是psql默认情况下，就是以postgres用户去连接本地的pgsql，所以可以直接进入下面的图是默认的连接方式   后面都基于psql的命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机软件的发展">
-<meta property="og:url" content="https://www.oliver.ren/2024/09/19/20240919-03.html">
+<meta property="og:title" content="PostgreSQL的基础操作">
+<meta property="og:url" content="https://www.oliver.ren/2024/10/10/20241010-06.html">
 <meta property="og:site_name" content="Oliver&#39;s Blog">
-<meta property="og:description" content="计算机软件的发展 汇编语言阶段（20世纪50年代） 程序批处理阶段（20世纪60年代） 分时多用户阶段（20世纪70年代） 分布式管理阶段（20世纪80年代） 软件重用阶段（20世纪90年代） Web服务阶段（21世纪初至今）">
+<meta property="og:description" content="在psql命令行（客户端）下，执行了一次\l，查看所有的库信息 可以直接基于psql查看一些信息，也可以基于psql进入到命令行后，再做具体操作  可以直接基于psql操作。 123可以使用psql --help，查看psql的命令可以直接进入到命令行的原因是psql默认情况下，就是以postgres用户去连接本地的pgsql，所以可以直接进入下面的图是默认的连接方式   后面都基于psql的命令">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-09-19T11:10:36.000Z">
-<meta property="article:modified_time" content="2024-09-19T11:39:44.556Z">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/dcd871238f4549649018fc8b07c6dc93.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/490b99cc853d406e87a8f9b05a1c88e9.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/b10afe02df1c45b6bdab8f03eced03f5.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/e31c67986b4d4570ad70200065d9e704.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/d338efe105a44718969fbb369450e38d.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/248de5f3be7446f5be9adf5225560268.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/d85d11baa4474370b5a4c97a18c07581.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/0ca8c4fb119f44d5befe8020a2cd416a.png">
+<meta property="article:published_time" content="2024-10-10T12:06:58.000Z">
+<meta property="article:modified_time" content="2024-10-10T12:08:11.147Z">
 <meta property="article:author" content="Oliver King">
-<meta property="article:tag" content="计算机组成原理">
+<meta property="article:tag" content="PostgreSQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.oliver.ren/assets/20241010/dcd871238f4549649018fc8b07c6dc93.png">
 
 
-<link rel="canonical" href="https://www.oliver.ren/2024/09/19/20240919-03.html">
+<link rel="canonical" href="https://www.oliver.ren/2024/10/10/20241010-06.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.oliver.ren/2024/09/19/20240919-03.html","path":"2024/09/19/20240919-03.html","title":"计算机软件的发展"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.oliver.ren/2024/10/10/20241010-06.html","path":"2024/10/10/20241010-06.html","title":"PostgreSQL的基础操作"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>计算机软件的发展 | Oliver's Blog</title>
+<title>PostgreSQL的基础操作 | Oliver's Blog</title>
   
 
 
@@ -140,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">1.</span> <span class="nav-text">计算机软件的发展</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3"><span class="nav-number">1.</span> <span class="nav-text">用户相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">权限操作</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -185,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.oliver.ren/2024/09/19/20240919-03.html">
+    <link itemprop="mainEntityOfPage" href="https://www.oliver.ren/2024/10/10/20241010-06.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -198,12 +207,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="计算机软件的发展 | Oliver's Blog">
+      <meta itemprop="name" content="PostgreSQL的基础操作 | Oliver's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          计算机软件的发展
+          PostgreSQL的基础操作
         </h1>
 
         <div class="post-meta-container">
@@ -215,7 +224,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-09-19 19:10:36 / 修改时间：19:39:44" itemprop="dateCreated datePublished" datetime="2024-09-19T19:10:36+08:00">2024-09-19</time>
+      <time title="创建时间：2024-10-10 20:06:58 / 修改时间：20:08:11" itemprop="dateCreated datePublished" datetime="2024-10-10T20:06:58+08:00">2024-10-10</time>
     </span>
 
   
@@ -227,14 +236,44 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="计算机软件的发展"><a href="#计算机软件的发展" class="headerlink" title="计算机软件的发展"></a>计算机软件的发展</h1><ol>
-<li>汇编语言阶段（20世纪50年代）</li>
-<li>程序批处理阶段（20世纪60年代）</li>
-<li>分时多用户阶段（20世纪70年代）</li>
-<li>分布式管理阶段（20世纪80年代）</li>
-<li>软件重用阶段（20世纪90年代）</li>
-<li>Web服务阶段（21世纪初至今）</li>
-</ol>
+    <div class="post-body" itemprop="articleBody"><p>在psql命令行（客户端）下，执行了一次\l，查看所有的库信息</p>
+<p>可以直接基于psql查看一些信息，也可以基于psql进入到命令行后，再做具体操作</p>
+<p><img src="/./assets/20241010/dcd871238f4549649018fc8b07c6dc93.png" alt="\l"></p>
+<p>可以直接基于psql操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以使用psql --help，查看psql的命令</span><br><span class="line">可以直接进入到命令行的原因是psql默认情况下，就是以postgres用户去连接本地的pgsql，所以可以直接进入</span><br><span class="line">下面的图是默认的连接方式</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/490b99cc853d406e87a8f9b05a1c88e9.png" alt="默认连接方式"></p>
+<p>后面都基于psql的命令行（客户端）去进行操作</p>
+<p>命令不用背，需要使用的时候，直接找帮助文档，在psql命令行中，直接输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\help，即可查看到数据库级别的一些命令</span><br><span class="line">\?，可以查看到服务级别的一些命令</span><br></pre></td></tr></table></figure>
+
+<h1 id="用户相关"><a href="#用户相关" class="headerlink" title="用户相关"></a>用户相关</h1><p>构建用户命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">create</span> <span class="keyword">user</span>默认有连接权限，而<span class="keyword">create</span> role没有，但可以基于选项设置</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> 名称 [ [ <span class="keyword">WITH</span> ] 选项 [ ... ] ]</span><br><span class="line"><span class="keyword">CREATE</span> ROLE 名称 [ [ <span class="keyword">WITH</span> ] 选项 [ ... ] ]</span><br></pre></td></tr></table></figure>
+
+<p>创建一个超级管理员用户：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> root <span class="keyword">WITH</span> SUPERUSER PASSWORD <span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/b10afe02df1c45b6bdab8f03eced03f5.png" alt="创建超级管理员"></p>
+<p>退出psql命令行</p>
+<p><img src="/./assets/20241010/e31c67986b4d4570ad70200065d9e704.png" alt="退出命令行"></p>
+<p>尝试去用root用户登录的psql命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -h 192.168.11.32 -p 5432 -U root -W</span><br></pre></td></tr></table></figure>
+
+<p>根据提示发现，光有用户不让登录，用户需要有一个数据库，创建一个root库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database root;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/d338efe105a44718969fbb369450e38d.png" alt="创建数据库"></p>
+<p>可以在不退出psql的前提下，直接切换数据库</p>
+<p><img src="/./assets/20241010/248de5f3be7446f5be9adf5225560268.png" alt="切换数据库"></p>
+<p>也可以退出psql，重新基于psql命令去切换用户以及数据库</p>
+<p>如果要修改用户信息，或者删除用户，可以查看</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改用户，直接基于ALTER命令操作</span></span><br><span class="line"><span class="comment"># 删除用户，直接基于DROP命令操作</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要查看现在的全部用户信息</p>
+<p><img src="/./assets/20241010/d85d11baa4474370b5a4c97a18c07581.png" alt="查看全部用户信息"></p>
+<h1 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h1><p>权限操作前，要先掌握一下PGSQL的逻辑结构</p>
+<p><img src="/./assets/20241010/0ca8c4fb119f44d5befe8020a2cd416a.png" alt="逻辑结构图"></p>
+<p>PostgreSQL一个数据库中有多个schema，在每个schema下都有自己的相应的表信息，权限粒度比MySQL更细一些。</p>
 
     </div>
 
@@ -244,21 +283,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag"># 计算机组成原理</a>
+              <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/09/19/20240919-02.html" rel="prev" title="计算机的发展历程">
-                  <i class="fa fa-angle-left"></i> 计算机的发展历程
+                <a href="/2024/10/10/20241010-05.html" rel="prev" title="PostgreSQL的配置">
+                  <i class="fa fa-angle-left"></i> PostgreSQL的配置
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/09/19/20240919-04.html" rel="next" title="计算机的分类与发展方向">
-                  计算机的分类与发展方向 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
