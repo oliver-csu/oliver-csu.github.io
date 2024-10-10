@@ -650,7 +650,7 @@
     <title>PostgreSQL介绍</title>
     <url>/2024/10/10/20241010-02.html</url>
     <content><![CDATA[<p>PostgreSQL是一个功能强大的 <strong>开源</strong> 的关系型数据库，底层基于C实现。</p>
-<p>PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。 也就是BDS协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。</p>
+<p>PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。也就是BSD协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。</p>
 <p>PostgreSQL的名字咋来的：之前叫Ingres，后面为了解决一些Ingres中的一些问题，作为后面的Ingres，就起名叫Postgre。</p>
 <p>PostgreSQL版本迭代的速度比较快，现在最新的正式的发布版本，已经到了15.RELEASE。</p>
 <p>PostgreSQL的版本选择一般有两种：</p>
