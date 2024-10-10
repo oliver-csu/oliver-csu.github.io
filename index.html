@@ -149,7 +149,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -171,6 +171,124 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.oliver.ren/2024/10/10/20241010-01.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Oliver King">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver's Blog">
+      <meta itemprop="description" content="Oliver's Blog|小菜鸟要努力学习哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Oliver's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/10/10/20241010-01.html" class="post-title-link" itemprop="url">计算机的性能指标</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-10-10 16:40:59 / 修改时间：17:04:49" itemprop="dateCreated datePublished" datetime="2024-10-10T16:40:59+08:00">2024-10-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="机器字长"><a href="#机器字长" class="headerlink" title="机器字长"></a>机器字长</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>也叫基本字长，参与运算的二进制数据的位数，决定了寄存器、ALU、数据总线位数，代表了运算精度</p>
+<h2 id="易混淆概念"><a href="#易混淆概念" class="headerlink" title="易混淆概念"></a>易混淆概念</h2><ul>
+<li>机器字长：一般等于内部寄存器的大小</li>
+<li>指令字长：一个指令包含的二进制码的位数</li>
+<li>存储字长：存储单元的二进制码的长度&#x2F;位数</li>
+</ul>
+<p>注意：所有字长都必须是字节的整数倍。</p>
+<p><img src="/./assets/20241010/71d36dda134e40c8b96ea996496f097f.png" alt="机器字长"></p>
+<h1 id="主存容量"><a href="#主存容量" class="headerlink" title="主存容量"></a>主存容量</h1><h2 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h2><p>一般指主存的最大容量，单位是字节Byte，运行时程序和数据都在主存中，主存容量越大，可运行的程序就越多，MAR位数（但不一定是当前机器安装内存的容量）决定了可寻址范围的最大值。</p>
+<p><img src="/./assets/20241010/624d4dca02014be5875079492bd2f194.png" alt="主存容量"></p>
+<h1 id="运算速度"><a href="#运算速度" class="headerlink" title="运算速度"></a>运算速度</h1><h2 id="吞吐量："><a href="#吞吐量：" class="headerlink" title="吞吐量："></a>吞吐量：</h2><p>单位时间内处理的请求数量，由如下因素决定：</p>
+<ul>
+<li>信息输入内存的速度</li>
+<li>CPU取指令的速度</li>
+<li>数据取出&#x2F;存入内存的速度</li>
+<li>从内存转出到外部设备的速度</li>
+</ul>
+<h2 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h2><p>从用户发送请求到收到响应经过的时间，，由如下因素决定：</p>
+<ul>
+<li>CPU时间（运行程序花费的时间）</li>
+<li>等待时间（磁盘访问&#x2F;主存访问&#x2F;IO操作&#x2F;OS开销&#x2F;网络传输）</li>
+</ul>
+<h2 id="CPU时钟周期"><a href="#CPU时钟周期" class="headerlink" title="CPU时钟周期"></a>CPU时钟周期</h2><p>单个动作所花费的时间</p>
+<ul>
+<li>节拍脉冲或T周期，即主频的倒数</li>
+<li>CPU中最小的时间单位，每个动作至少一个时钟周期</li>
+<li>单位：秒</li>
+</ul>
+<h2 id="主频（CPU时钟频率）"><a href="#主频（CPU时钟频率）" class="headerlink" title="主频（CPU时钟频率）"></a>主频（CPU时钟频率）</h2><p>单位时间完成基本动作的数量</p>
+<ul>
+<li>机器内部主时钟的频率</li>
+<li>主频越高花费时间越短，执行指令速度越快</li>
+<li>单位：Hz（赫兹），即次数&#x2F;秒</li>
+<li>时钟周期 &#x3D; 1&#x2F;主频</li>
+</ul>
+<h2 id="CPI（Clock-cycle-Per-Instruction）"><a href="#CPI（Clock-cycle-Per-Instruction）" class="headerlink" title="CPI（Clock cycle Per Instruction）"></a>CPI（Clock cycle Per Instruction）</h2><p>执行一条指令所需的时钟周期数</p>
+<h2 id="CPU执行时间"><a href="#CPU执行时间" class="headerlink" title="CPU执行时间"></a>CPU执行时间</h2><p>即运行一个程序所花费的时间，&#x3D; CPU时钟周期数&#x2F;主频&#x3D;（指令条数 * CPI）&#x2F;主频</p>
+<p>三要素（相互制约）：</p>
+<ul>
+<li>主频（时钟频率）</li>
+<li>每条指令所用的时钟周期数（CPI）</li>
+<li>指令条数</li>
+</ul>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ul>
+<li>MIPS：Million Instructions Per Second &#x3D; 指令条数&#x2F;（执行时间*10^6）</li>
+<li>MFLOPS：Mega Floating-point Operations PS &#x3D; 浮点数操作次数&#x2F;(执行时间*10^6)</li>
+<li>GFLOPS：Giga Floating-point Operations PS &#x3D; 浮点数操作次数&#x2F;(执行时间*10^9)</li>
+<li>TFLOPS：Tera Floating-point Operations PS &#x3D; 浮点数操作次数&#x2F;(执行时间*10^12)</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
