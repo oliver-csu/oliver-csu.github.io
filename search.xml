@@ -728,4 +728,45 @@
         <tag>PostgreSQL</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PostgreSQL的配置</title>
+    <url>/2024/10/10/20241010-05.html</url>
+    <content><![CDATA[<p>两个配置文件：</p>
+<ul>
+<li>PostgreSQL的远程连接配置；</li>
+<li>PostgreSQL的日志配置。</li>
+</ul>
+<p>PostgreSQL的主要配置放在数据目录下的， <strong>postgresql.conf</strong> 以及 <strong>pg_hba.conf</strong> 配置文件</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置文件目录</span></span><br><span class="line"><span class="built_in">ls</span> -l /var/lib/pgsql/12/data</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/c3f3386b5adf4a92ad6c30d34313c8c1.png" alt="配置文件"></p>
+<p>上图可以看到，PostgreSQL的核心文件，都属于postgres用户，操作的时候，别用root用户，容易出问题，先切换到postgres用户再操作。</p>
+<h1 id="远程连接配置"><a href="#远程连接配置" class="headerlink" title="远程连接配置"></a>远程连接配置</h1><p>PostgreSQL默认情况下不支持远程连接的，这个跟MySQL一样。</p>
+<ul>
+<li>MySQL给mysql.user追加用户，一般是采用grant的命令添加；</li>
+<li>PostgreSQL要基于配置文件修改，才能制定用户是否可以远程连接。</li>
+</ul>
+<p>修改pg_hba.conf配置文件</p>
+<p>用户以及对应数据库和连接方式的编写模板：</p>
+<p><img src="/./assets/20241010/df6c3f8af68240968efa999a51f6d9bd.png" alt="用户权限配置模板"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 第一块</span><br><span class="line">local：代表本地连接，host代表可以指定连接的ADDRESS</span><br><span class="line"># 第二块</span><br><span class="line">database编写数据库名，如果写all，代表所有库都可以连接</span><br><span class="line"># 第三块</span><br><span class="line">user编写连接的用户，可以写all，代表所有用户</span><br><span class="line"># 第四块</span><br><span class="line">address代表那些IP地址可以连接</span><br><span class="line"># 第五块</span><br><span class="line">method加密方式，这块不用过多关注，使用md5即可</span><br><span class="line"># 示例配置：允许任意地址的全部用户连接所有数据库</span><br><span class="line">host    all             all             0.0.0.0/0               md5</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/0db1d87dd92b4068901649bf73c61dcd.png" alt="pg_hba.conf示例配置"></p>
+<p>为了实现远程连接，除了用户级别的这种配置，还要针对服务级别修改一个配置</p>
+<p>服务级别的配置在postgresql.conf</p>
+<p><img src="/./assets/20241010/52be7e1942834f18bf7d3109b342b842.png" alt="postgresql.conf原始配置"></p>
+<p>发现默认情况下，PostgreSQL只允许localhost连接，直接配置为*即可解决问题</p>
+<p><img src="/./assets/20241010/6f72192536624fe6bd9ec40e411afbe3.png" alt="postgresql.conf示例配置"></p>
+<p>为了生效，需要重启服务：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用root用户重启</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart postgresql-12</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据库的日志配置"><a href="#数据库的日志配置" class="headerlink" title="数据库的日志配置"></a>数据库的日志配置</h1><p>查看postgresql.conf文件</p>
+<p><img src="/./assets/20241010/210375d9a72e40639750216606d2e2a0.png" alt="postgresql.conf日志原始配置"></p>
+<p>PostgreSQL默认情况下，只保存7天的日志，循环覆盖。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 代表日志是开启的。</span><br><span class="line">logging_collector = on</span><br><span class="line"># 日志存放的路径，默认放到当前目录下的log里</span><br><span class="line">log_directory = &#x27;log&#x27;</span><br><span class="line"># 日志的文件名，默认是postgresql为前缀，星期作为后缀</span><br><span class="line">log_filename = &#x27;postgresql-%a.log&#x27;</span><br><span class="line"># 默认一周过后，日志文件会被覆盖</span><br><span class="line">log_truncate_on_rotation = on</span><br><span class="line"># 一天一个日志文件</span><br><span class="line">log_rotation_age = 1d</span><br><span class="line"># 一个日志文件，没有大小限制</span><br><span class="line">log_rotation_size = 0</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>PostgreSQL</tag>
+      </tags>
+  </entry>
 </search>

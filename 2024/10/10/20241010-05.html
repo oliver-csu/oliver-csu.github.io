@@ -19,28 +19,35 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.oliver.ren","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="PostgreSQL是一个功能强大的 开源 的关系型数据库，底层基于C实现。 PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。也就是BSD协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。 PostgreSQL的名字咋来的：之前叫Ingres，后面为了解决一些Ingres中的一些问题，作为后面的Ingres，就起名叫Pos">
+    <meta name="description" content="两个配置文件：  PostgreSQL的远程连接配置； PostgreSQL的日志配置。  PostgreSQL的主要配置放在数据目录下的， postgresql.conf 以及 pg_hba.conf 配置文件 12# 配置文件目录ls -l &#x2F;var&#x2F;lib&#x2F;pgsql&#x2F;12&#x2F;data   上图可以看到，PostgreSQL的核心文件，都属于postgres用户，操作的时候，别用root用户，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PostgreSQL介绍">
-<meta property="og:url" content="https://www.oliver.ren/2024/10/10/20241010-02.html">
+<meta property="og:title" content="PostgreSQL的配置">
+<meta property="og:url" content="https://www.oliver.ren/2024/10/10/20241010-05.html">
 <meta property="og:site_name" content="Oliver&#39;s Blog">
-<meta property="og:description" content="PostgreSQL是一个功能强大的 开源 的关系型数据库，底层基于C实现。 PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。也就是BSD协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。 PostgreSQL的名字咋来的：之前叫Ingres，后面为了解决一些Ingres中的一些问题，作为后面的Ingres，就起名叫Pos">
+<meta property="og:description" content="两个配置文件：  PostgreSQL的远程连接配置； PostgreSQL的日志配置。  PostgreSQL的主要配置放在数据目录下的， postgresql.conf 以及 pg_hba.conf 配置文件 12# 配置文件目录ls -l &#x2F;var&#x2F;lib&#x2F;pgsql&#x2F;12&#x2F;data   上图可以看到，PostgreSQL的核心文件，都属于postgres用户，操作的时候，别用root用户，">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-10T09:29:28.000Z">
-<meta property="article:modified_time" content="2024-10-10T09:52:47.411Z">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/c3f3386b5adf4a92ad6c30d34313c8c1.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/df6c3f8af68240968efa999a51f6d9bd.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/0db1d87dd92b4068901649bf73c61dcd.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/52be7e1942834f18bf7d3109b342b842.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/6f72192536624fe6bd9ec40e411afbe3.png">
+<meta property="og:image" content="https://www.oliver.ren/assets/20241010/210375d9a72e40639750216606d2e2a0.png">
+<meta property="article:published_time" content="2024-10-10T11:27:43.000Z">
+<meta property="article:modified_time" content="2024-10-10T11:28:50.071Z">
 <meta property="article:author" content="Oliver King">
 <meta property="article:tag" content="PostgreSQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.oliver.ren/assets/20241010/c3f3386b5adf4a92ad6c30d34313c8c1.png">
 
 
-<link rel="canonical" href="https://www.oliver.ren/2024/10/10/20241010-02.html">
+<link rel="canonical" href="https://www.oliver.ren/2024/10/10/20241010-05.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.oliver.ren/2024/10/10/20241010-02.html","path":"2024/10/10/20241010-02.html","title":"PostgreSQL介绍"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.oliver.ren/2024/10/10/20241010-05.html","path":"2024/10/10/20241010-05.html","title":"PostgreSQL的配置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>PostgreSQL介绍 | Oliver's Blog</title>
+<title>PostgreSQL的配置 | Oliver's Blog</title>
   
 
 
@@ -127,7 +134,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -140,6 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">远程连接配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">数据库的日志配置</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -184,7 +192,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.oliver.ren/2024/10/10/20241010-02.html">
+    <link itemprop="mainEntityOfPage" href="https://www.oliver.ren/2024/10/10/20241010-05.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,12 +205,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="PostgreSQL介绍 | Oliver's Blog">
+      <meta itemprop="name" content="PostgreSQL的配置 | Oliver's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PostgreSQL介绍
+          PostgreSQL的配置
         </h1>
 
         <div class="post-meta-container">
@@ -214,7 +222,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-10-10 17:29:28 / 修改时间：17:52:47" itemprop="dateCreated datePublished" datetime="2024-10-10T17:29:28+08:00">2024-10-10</time>
+      <time title="创建时间：2024-10-10 19:27:43 / 修改时间：19:28:50" itemprop="dateCreated datePublished" datetime="2024-10-10T19:27:43+08:00">2024-10-10</time>
     </span>
 
   
@@ -226,23 +234,39 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>PostgreSQL是一个功能强大的 <strong>开源</strong> 的关系型数据库，底层基于C实现。</p>
-<p>PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。也就是BSD协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。</p>
-<p>PostgreSQL的名字咋来的：之前叫Ingres，后面为了解决一些Ingres中的一些问题，作为后面的Ingres，就起名叫Postgre。</p>
-<p>PostgreSQL版本迭代的速度比较快，现在最新的正式的发布版本，已经到了15.RELEASE。</p>
-<p>PostgreSQL的版本选择一般有两种：</p>
+    <div class="post-body" itemprop="articleBody"><p>两个配置文件：</p>
 <ul>
-<li>如果为了稳定的运行，推荐使用12.x版本。</li>
-<li>如果想体验新特性，推荐使用14.x版本。</li>
+<li>PostgreSQL的远程连接配置；</li>
+<li>PostgreSQL的日志配置。</li>
 </ul>
-<p>PostgreSQL允许跨版本升级，而且没有什么大问题。</p>
-<p>PostgreSQL社区特别活跃，基本是三个月一发版，也就意味着很多常见的BUG都可以得到及时的修复。</p>
-<p>PostgreSQL其实在国外使用的比较多，国内暂时还是以MySQL为主。</p>
-<p>但是国内很多国产数据库都是基于PostgreSQL做的二次封装：比如华为GaussDB，还有腾讯的Tbase等。</p>
-<p>甚至很多公司原来玩的Oracle，直接平转到PostgreSQL，同时国内的很多云厂商都支持PostgreSQL了。</p>
-<p>PostgreSQL因为开源，所以有很多做数据迁移的工具，可以快速的从MySQL，SQLServer，Oracle直接平转到PostgreSQL，比如pgloader这样的数据迁移工具。</p>
-<p>PostgreSQL的官方社区地址：<a target="_blank" rel="noopener" href="https://www.postgresql.org/">https://www.postgresql.org/</a></p>
-<p>PostgreSQL的国内社区地址：<a target="_blank" rel="noopener" href="http://www.postgres.cn/v2/home">http://www.postgres.cn/v2/home</a></p>
+<p>PostgreSQL的主要配置放在数据目录下的， <strong>postgresql.conf</strong> 以及 <strong>pg_hba.conf</strong> 配置文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置文件目录</span></span><br><span class="line"><span class="built_in">ls</span> -l /var/lib/pgsql/12/data</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/c3f3386b5adf4a92ad6c30d34313c8c1.png" alt="配置文件"></p>
+<p>上图可以看到，PostgreSQL的核心文件，都属于postgres用户，操作的时候，别用root用户，容易出问题，先切换到postgres用户再操作。</p>
+<h1 id="远程连接配置"><a href="#远程连接配置" class="headerlink" title="远程连接配置"></a>远程连接配置</h1><p>PostgreSQL默认情况下不支持远程连接的，这个跟MySQL一样。</p>
+<ul>
+<li>MySQL给mysql.user追加用户，一般是采用grant的命令添加；</li>
+<li>PostgreSQL要基于配置文件修改，才能制定用户是否可以远程连接。</li>
+</ul>
+<p>修改pg_hba.conf配置文件</p>
+<p>用户以及对应数据库和连接方式的编写模板：</p>
+<p><img src="/./assets/20241010/df6c3f8af68240968efa999a51f6d9bd.png" alt="用户权限配置模板"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 第一块</span><br><span class="line">local：代表本地连接，host代表可以指定连接的ADDRESS</span><br><span class="line"># 第二块</span><br><span class="line">database编写数据库名，如果写all，代表所有库都可以连接</span><br><span class="line"># 第三块</span><br><span class="line">user编写连接的用户，可以写all，代表所有用户</span><br><span class="line"># 第四块</span><br><span class="line">address代表那些IP地址可以连接</span><br><span class="line"># 第五块</span><br><span class="line">method加密方式，这块不用过多关注，使用md5即可</span><br><span class="line"># 示例配置：允许任意地址的全部用户连接所有数据库</span><br><span class="line">host    all             all             0.0.0.0/0               md5</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/0db1d87dd92b4068901649bf73c61dcd.png" alt="pg_hba.conf示例配置"></p>
+<p>为了实现远程连接，除了用户级别的这种配置，还要针对服务级别修改一个配置</p>
+<p>服务级别的配置在postgresql.conf</p>
+<p><img src="/./assets/20241010/52be7e1942834f18bf7d3109b342b842.png" alt="postgresql.conf原始配置"></p>
+<p>发现默认情况下，PostgreSQL只允许localhost连接，直接配置为*即可解决问题</p>
+<p><img src="/./assets/20241010/6f72192536624fe6bd9ec40e411afbe3.png" alt="postgresql.conf示例配置"></p>
+<p>为了生效，需要重启服务：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用root用户重启</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart postgresql-12</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据库的日志配置"><a href="#数据库的日志配置" class="headerlink" title="数据库的日志配置"></a>数据库的日志配置</h1><p>查看postgresql.conf文件</p>
+<p><img src="/./assets/20241010/210375d9a72e40639750216606d2e2a0.png" alt="postgresql.conf日志原始配置"></p>
+<p>PostgreSQL默认情况下，只保存7天的日志，循环覆盖。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 代表日志是开启的。</span><br><span class="line">logging_collector = on</span><br><span class="line"># 日志存放的路径，默认放到当前目录下的log里</span><br><span class="line">log_directory = &#x27;log&#x27;</span><br><span class="line"># 日志的文件名，默认是postgresql为前缀，星期作为后缀</span><br><span class="line">log_filename = &#x27;postgresql-%a.log&#x27;</span><br><span class="line"># 默认一周过后，日志文件会被覆盖</span><br><span class="line">log_truncate_on_rotation = on</span><br><span class="line"># 一天一个日志文件</span><br><span class="line">log_rotation_age = 1d</span><br><span class="line"># 一个日志文件，没有大小限制</span><br><span class="line">log_rotation_size = 0</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -259,14 +283,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/10/10/20241010-01.html" rel="prev" title="计算机的性能指标">
-                  <i class="fa fa-angle-left"></i> 计算机的性能指标
+                <a href="/2024/10/10/20241010-04.html" rel="prev" title="PostgreSQL的安装">
+                  <i class="fa fa-angle-left"></i> PostgreSQL的安装
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/10/10/20241010-03.html" rel="next" title="PostgreSQL和MySQL的区别">
-                  PostgreSQL和MySQL的区别 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
