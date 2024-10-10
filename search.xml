@@ -671,4 +671,30 @@
         <tag>PostgreSQL</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PostgreSQL和MySQL的区别</title>
+    <url>/2024/10/10/20241010-03.html</url>
+    <content><![CDATA[<p>技术没有好坏之分，主要看一下是否符合业务的需要，能否解决业务需求；其次也要看社区的活跃度以及更新的频次。</p>
+<p>MySQL不支持的几点内容：</p>
+<ul>
+<li>MySQL的数据类型不够丰富；</li>
+<li>MySQL不支持序列概念（Sequence）；</li>
+<li>使用MySQL时，网上比较好用的插件；</li>
+<li>MySQL的性能优化监控工具不是很多，定位问题的成本是比较高；</li>
+<li>MySQL的主从复制没有一个官方的同步策略，同步问题难以解决；</li>
+<li>MySQL虽然开源但不够彻底。</li>
+</ul>
+<p>PostgreSQL相对MySQL上述问题的特点：</p>
+<ul>
+<li>PostgreSQL的数据类型嘎嘎丰富；</li>
+<li>PostgreSQL是有序列的概念的；</li>
+<li>PostgreSQL的插件特别丰富；</li>
+<li>PostgreSQL支持主从复制的同步操作，可以实现数据的零丢失；</li>
+<li>PostgreSQL的MVCC实现和MySQL不大一样（PostgreSQL一行数据会存储多个版本，最多可以存储40亿个事务版本）。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>PostgreSQL</tag>
+      </tags>
+  </entry>
 </search>
