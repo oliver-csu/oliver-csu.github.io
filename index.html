@@ -210,7 +210,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-10-10 20:06:58 / 修改时间：20:08:11" itemprop="dateCreated datePublished" datetime="2024-10-10T20:06:58+08:00">2024-10-10</time>
+      <time title="创建时间：2024-10-10 20:06:58 / 修改时间：20:24:42" itemprop="dateCreated datePublished" datetime="2024-10-10T20:06:58+08:00">2024-10-10</time>
     </span>
 
   
@@ -225,7 +225,7 @@
     <div class="post-body" itemprop="articleBody">
           <p>在psql命令行（客户端）下，执行了一次\l，查看所有的库信息</p>
 <p>可以直接基于psql查看一些信息，也可以基于psql进入到命令行后，再做具体操作</p>
-<p><img src="/./assets/20241010/dcd871238f4549649018fc8b07c6dc93.png" alt="\l"></p>
+<p><img src="/./assets/20241010/dcd871238f4549649018fc8b07c6dc93.png" alt="\l查看所有的库信息"></p>
 <p>可以直接基于psql操作。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以使用psql --help，查看psql的命令</span><br><span class="line">可以直接进入到命令行的原因是psql默认情况下，就是以postgres用户去连接本地的pgsql，所以可以直接进入</span><br><span class="line">下面的图是默认的连接方式</span><br></pre></td></tr></table></figure>
 
@@ -261,6 +261,30 @@
 <h1 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h1><p>权限操作前，要先掌握一下PGSQL的逻辑结构</p>
 <p><img src="/./assets/20241010/0ca8c4fb119f44d5befe8020a2cd416a.png" alt="逻辑结构图"></p>
 <p>PostgreSQL一个数据库中有多个schema，在每个schema下都有自己的相应的表信息，权限粒度比MySQL更细一些。</p>
+<p>在PostgreSQL中，权限的管理分为很多多层：</p>
+<ul>
+<li>server、cluster、tablespace级别：基于pg_hba.conf去配置；</li>
+<li>database级别：通过grant命令操作；</li>
+<li>namespace、schema级别：使用不多，暂不了解；</li>
+<li>对象级别：通过grant命令去设置。</li>
+</ul>
+<p>对database或者是对象级别做权限控制可以直接基于grant命令去操作，查看grant命令的使用帮助：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看grant命令</span></span><br><span class="line">\<span class="built_in">help</span> grant</span><br></pre></td></tr></table></figure>
+
+<h2 id="小任务"><a href="#小任务" class="headerlink" title="小任务"></a>小任务</h2><ul>
+<li>构建一个用户</li>
+<li>构建一个数据库</li>
+<li>在这个数据库下构建一个schema（数据库默认有一个public的schema）</li>
+<li>将这个schema的权限赋予用户</li>
+<li>在这个schema下构建一个表</li>
+<li>将表的select，update，insert权限赋予用户</li>
+</ul>
+<h2 id="完成上述操作"><a href="#完成上述操作" class="headerlink" title="完成上述操作"></a>完成上述操作</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 准备用户</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> user_oliver <span class="keyword">with</span> password <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"><span class="comment">-- 准备数据库</span></span><br><span class="line"><span class="keyword">create</span> database database_oliver;</span><br><span class="line"><span class="comment">-- 切换数据库</span></span><br><span class="line">\c db_oliver;</span><br><span class="line"><span class="comment">-- 构建schema</span></span><br><span class="line"><span class="keyword">create</span> schema schema_oliver;</span><br><span class="line"><span class="comment">-- 将schema的拥有者修改为oliver用户</span></span><br><span class="line"><span class="keyword">alter</span> schema schema_oliver owner <span class="keyword">to</span> user_oliver;</span><br><span class="line"><span class="comment">-- 将database_oliver库下的schema_oliver的schema中的表的增，改，查权限赋予给user_oliver用户</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span> <span class="keyword">on</span> <span class="keyword">all</span> tables <span class="keyword">in</span> schema schema_oliver <span class="keyword">to</span> user_oliver;</span><br><span class="line"><span class="comment">-- 用postgres用户先构建一张表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> schema_oliver.test(id <span class="type">int</span>);</span><br><span class="line"><span class="comment">-- 切换到laozheng用户。</span></span><br><span class="line">\c user_oliver <span class="operator">-</span>password </span><br><span class="line"><span class="comment">-- 报错：</span></span><br><span class="line"><span class="comment">-- 致命错误:  对用户&quot;-user_oliver&quot;的对等认证失败</span></span><br><span class="line"><span class="comment">-- Previous connection kept</span></span><br><span class="line"><span class="comment">-- 上述方式直接凉凉，原因是匹配连接方式时，基于pg_hba.conf文件去从上往下找</span></span><br><span class="line"><span class="comment">-- 找到的第一个是local，匹配上的。发现连接方式是peer。</span></span><br><span class="line"><span class="comment">-- peer代表用当前系统用户去连接PostgreSQL</span></span><br><span class="line"><span class="comment">-- 当前系统用户只有postgres，没有user_oliver，无法使用peer连接</span></span><br><span class="line"><span class="comment">-- 想构建user_oliver用户时，发现PostgreSQL的所有文件拥有者和所属组都是postgres，并且能操作的只有拥有者</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/./assets/20241010/7d9dc08d006c4b8fb7959b63f8138c07.png" alt="文件权限"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- 基于上述问题，不采用本地连接即可。</span><br><span class="line">-- 采用远程连接。</span><br><span class="line">psql -h 127.0.0.1 -p 5432 -U user_oliver -W</span><br><span class="line">-- 这样依赖，跳过了local链接方式的匹配，直接锁定到后面的host，host的连接方式是md5，md5其实就是密码加密了。</span><br><span class="line">-- 登录后，直接输入</span><br><span class="line">\dn</span><br><span class="line">-- 查看到当前database下有两个schema</span><br></pre></td></tr></table></figure>
+
+<p>这种权限的赋予方式，可以用管理员用户去构建整体表结构，分配指定用户，赋予不同的权限，就不怕用户误操作了。</p>
 
       
     </div>
