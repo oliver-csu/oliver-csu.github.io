@@ -19,31 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.oliver.ren","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="计算机系统的组成 硬件（裸机） 操作系统（OS） 应用程序 用户   操作系统和应用程序统称为软件，系统软件主要包括：  操作系统 语言处理程序 数据库管理系统 分布式软件系统 网络软件系统 各种服务软件  计算机硬件的发展 电子管时代（1946-1959） 晶体管时代（1959-1964） 中小规模集成电路时代（1964-1975） 超大规模集成电路时代（1975-1990） 超级规模集成电路时">
+    <meta name="description" content="PostgreSQL是一个功能强大的 开源 的关系型数据库，底层基于C实现。 PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。 也就是BDS协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。 PostgreSQL的名字咋来的：之前叫Ingres，后面为了解决一些Ingres中的一些问题，作为后面的Ingres，就起名叫Po">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机的发展历程">
-<meta property="og:url" content="https://www.oliver.ren/2024/09/19/20240919-02.html">
+<meta property="og:title" content="PostgreSQL介绍">
+<meta property="og:url" content="https://www.oliver.ren/2024/10/10/20241010-02.html">
 <meta property="og:site_name" content="Oliver&#39;s Blog">
-<meta property="og:description" content="计算机系统的组成 硬件（裸机） 操作系统（OS） 应用程序 用户   操作系统和应用程序统称为软件，系统软件主要包括：  操作系统 语言处理程序 数据库管理系统 分布式软件系统 网络软件系统 各种服务软件  计算机硬件的发展 电子管时代（1946-1959） 晶体管时代（1959-1964） 中小规模集成电路时代（1964-1975） 超大规模集成电路时代（1975-1990） 超级规模集成电路时">
+<meta property="og:description" content="PostgreSQL是一个功能强大的 开源 的关系型数据库，底层基于C实现。 PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。 也就是BDS协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。 PostgreSQL的名字咋来的：之前叫Ingres，后面为了解决一些Ingres中的一些问题，作为后面的Ingres，就起名叫Po">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.oliver.ren/assets/20240919/7ac4874c03f64de9ba65a042d2947a76.png">
-<meta property="og:image" content="https://www.oliver.ren/assets/20240919/be2eb7263f694464946d4ee5a97752d6.png">
-<meta property="article:published_time" content="2024-09-19T10:27:49.000Z">
-<meta property="article:modified_time" content="2024-09-19T11:39:44.546Z">
+<meta property="article:published_time" content="2024-10-10T09:29:28.000Z">
+<meta property="article:modified_time" content="2024-10-10T09:30:33.882Z">
 <meta property="article:author" content="Oliver King">
-<meta property="article:tag" content="计算机组成原理">
+<meta property="article:tag" content="PostgreSQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.oliver.ren/assets/20240919/7ac4874c03f64de9ba65a042d2947a76.png">
 
 
-<link rel="canonical" href="https://www.oliver.ren/2024/09/19/20240919-02.html">
+<link rel="canonical" href="https://www.oliver.ren/2024/10/10/20241010-02.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.oliver.ren/2024/09/19/20240919-02.html","path":"2024/09/19/20240919-02.html","title":"计算机的发展历程"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.oliver.ren/2024/10/10/20241010-02.html","path":"2024/10/10/20241010-02.html","title":"PostgreSQL介绍"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>计算机的发展历程 | Oliver's Blog</title>
+<title>PostgreSQL介绍 | Oliver's Blog</title>
   
 
 
@@ -130,7 +127,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -143,7 +140,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">计算机系统的组成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">计算机硬件的发展</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,7 +184,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.oliver.ren/2024/09/19/20240919-02.html">
+    <link itemprop="mainEntityOfPage" href="https://www.oliver.ren/2024/10/10/20241010-02.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -201,12 +197,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="计算机的发展历程 | Oliver's Blog">
+      <meta itemprop="name" content="PostgreSQL介绍 | Oliver's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          计算机的发展历程
+          PostgreSQL介绍
         </h1>
 
         <div class="post-meta-container">
@@ -218,7 +214,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-09-19 18:27:49 / 修改时间：19:39:44" itemprop="dateCreated datePublished" datetime="2024-09-19T18:27:49+08:00">2024-09-19</time>
+      <time title="创建时间：2024-10-10 17:29:28 / 修改时间：17:30:33" itemprop="dateCreated datePublished" datetime="2024-10-10T17:29:28+08:00">2024-10-10</time>
     </span>
 
   
@@ -230,31 +226,23 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="计算机系统的组成"><a href="#计算机系统的组成" class="headerlink" title="计算机系统的组成"></a>计算机系统的组成</h1><ul>
-<li>硬件（裸机）</li>
-<li>操作系统（OS）</li>
-<li>应用程序</li>
-<li>用户</li>
-</ul>
-<p><img src="/./assets/20240919/7ac4874c03f64de9ba65a042d2947a76.png" alt="计算机系统"></p>
-<p>操作系统和应用程序统称为软件，系统软件主要包括：</p>
+    <div class="post-body" itemprop="articleBody"><p>PostgreSQL是一个功能强大的 <strong>开源</strong> 的关系型数据库，底层基于C实现。</p>
+<p>PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。 也就是BDS协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。</p>
+<p>PostgreSQL的名字咋来的：之前叫Ingres，后面为了解决一些Ingres中的一些问题，作为后面的Ingres，就起名叫Postgre。</p>
+<p>PostgreSQL版本迭代的速度比较快，现在最新的正式的发布版本，已经到了15.RELEASE。</p>
+<p>PostgreSQL的版本选择一般有两种：</p>
 <ul>
-<li>操作系统</li>
-<li>语言处理程序</li>
-<li>数据库管理系统</li>
-<li>分布式软件系统</li>
-<li>网络软件系统</li>
-<li>各种服务软件</li>
+<li>如果为了稳定的运行，推荐使用12.x版本。</li>
+<li>如果想体验新特性，推荐使用14.x版本。</li>
 </ul>
-<h1 id="计算机硬件的发展"><a href="#计算机硬件的发展" class="headerlink" title="计算机硬件的发展"></a>计算机硬件的发展</h1><ol>
-<li>电子管时代（1946-1959）</li>
-<li>晶体管时代（1959-1964）</li>
-<li>中小规模集成电路时代（1964-1975）</li>
-<li>超大规模集成电路时代（1975-1990）</li>
-<li>超级规模集成电路时代（1990-现在）</li>
-</ol>
-<p>1946年02月15日，诞生了第一台计算机，称为：ENIAC（Electronic Numerical Integrator and Computer）。</p>
-<p><img src="/./assets/20240919/be2eb7263f694464946d4ee5a97752d6.png" alt="ENIAC"></p>
+<p>PostgreSQL允许跨版本升级，而且没有什么大问题。</p>
+<p>PostgreSQL社区特别活跃，基本是三个月一发版，也就意味着很多常见的BUG都可以得到及时的修复。</p>
+<p>PostgreSQL其实在国外使用的比较多，国内暂时还是以MySQL为主。</p>
+<p>但是国内很多国产数据库都是基于PostgreSQL做的二次封装：比如华为GaussDB，还有腾讯的Tbase等。</p>
+<p>甚至很多公司原来玩的Oracle，直接平转到PostgreSQL，同时国内的很多云厂商都支持PostgreSQL了。</p>
+<p>PostgreSQL因为开源，所以有很多做数据迁移的工具，可以快速的从MySQL，SQLServer，Oracle直接平转到PostgreSQL，比如pgloader这样的数据迁移工具。</p>
+<p>PostgreSQL的官方社区地址：<a target="_blank" rel="noopener" href="https://www.postgresql.org/">https://www.postgresql.org/</a></p>
+<p>PostgreSQL的国内社区地址：<a target="_blank" rel="noopener" href="http://www.postgres.cn/v2/home">http://www.postgres.cn/v2/home</a></p>
 
     </div>
 
@@ -264,21 +252,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag"># 计算机组成原理</a>
+              <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/09/19/20240919-01.html" rel="prev" title="计算机组成原理">
-                  <i class="fa fa-angle-left"></i> 计算机组成原理
+                <a href="/2024/10/10/20241010-01.html" rel="prev" title="计算机的性能指标">
+                  <i class="fa fa-angle-left"></i> 计算机的性能指标
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/09/19/20240919-03.html" rel="next" title="计算机软件的发展">
-                  计算机软件的发展 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

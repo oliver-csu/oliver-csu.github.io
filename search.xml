@@ -646,4 +646,29 @@
         <tag>计算机组成原理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PostgreSQL介绍</title>
+    <url>/2024/10/10/20241010-02.html</url>
+    <content><![CDATA[<p>PostgreSQL是一个功能强大的 <strong>开源</strong> 的关系型数据库，底层基于C实现。</p>
+<p>PostgreSQL的开源协议和Linux内核版本的开源协议是一样的。 也就是BDS协议，这个协议基本和MIT开源协议一样，就是你可以对PostgreSQL进行一些封装，然后商业化来收费。</p>
+<p>PostgreSQL的名字咋来的：之前叫Ingres，后面为了解决一些Ingres中的一些问题，作为后面的Ingres，就起名叫Postgre。</p>
+<p>PostgreSQL版本迭代的速度比较快，现在最新的正式的发布版本，已经到了15.RELEASE。</p>
+<p>PostgreSQL的版本选择一般有两种：</p>
+<ul>
+<li>如果为了稳定的运行，推荐使用12.x版本。</li>
+<li>如果想体验新特性，推荐使用14.x版本。</li>
+</ul>
+<p>PostgreSQL允许跨版本升级，而且没有什么大问题。</p>
+<p>PostgreSQL社区特别活跃，基本是三个月一发版，也就意味着很多常见的BUG都可以得到及时的修复。</p>
+<p>PostgreSQL其实在国外使用的比较多，国内暂时还是以MySQL为主。</p>
+<p>但是国内很多国产数据库都是基于PostgreSQL做的二次封装：比如华为GaussDB，还有腾讯的Tbase等。</p>
+<p>甚至很多公司原来玩的Oracle，直接平转到PostgreSQL，同时国内的很多云厂商都支持PostgreSQL了。</p>
+<p>PostgreSQL因为开源，所以有很多做数据迁移的工具，可以快速的从MySQL，SQLServer，Oracle直接平转到PostgreSQL，比如pgloader这样的数据迁移工具。</p>
+<p>PostgreSQL的官方社区地址：<a href="https://www.postgresql.org/">https://www.postgresql.org/</a></p>
+<p>PostgreSQL的国内社区地址：<a href="http://www.postgres.cn/v2/home">http://www.postgres.cn/v2/home</a></p>
+]]></content>
+      <tags>
+        <tag>PostgreSQL</tag>
+      </tags>
+  </entry>
 </search>
